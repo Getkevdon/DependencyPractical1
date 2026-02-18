@@ -61,37 +61,37 @@ public class LogFileAnalyserJavaApplicationClient {
                         e.printStackTrace();
                     }
                     break;
-                    case 2:
+                case 2:
 // Produce log file for normal operation"
-                        try {
-                            FileWriter writer = new FileWriter(path+"LogFile.log");
-                            writer.write("Monitored production working normally");
-                            writer.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                        case 3:
+                    try {
+                        FileWriter writer = new FileWriter(path+"LogFile.log");
+                        writer.write("Monitored production working normally");
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 3:
 // Run the cross cutting LogFileAnalyser isValidLogFileName method
-                            boolean status;
-                            LogFileAnalyser myLogger = new LogFileAnalyser();
-                            status = myLogger.AnalyseLogFile("LogFile.log");
+                    boolean status;
+                    LogFileAnalyser myLogger = new LogFileAnalyser();
+                    status = myLogger.AnalyseLogFile("LogFile.log");
 // Output what was returned. The AnalyseLogFile method would return to some other
 // part of cross cutting which I am not showing.
-                            System.out.println("The cross cutting AnalyseLogFile method returned ->"+status);
+                    System.out.println("The cross cutting AnalyseLogFile method returned ->"+status);
 //delete the log file as I don't want to process it again
-                            File theLogFile = new File(path+"LogFile.log");
-                            if (theLogFile.exists())
-                            {
-                                theLogFile.delete();
-                            }
-                            break;
-                            case 4:
+                    File theLogFile = new File(path+"LogFile.log");
+                    if (theLogFile.exists())
+                    {
+                        theLogFile.delete();
+                    }
+                    break;
+                case 4:
 // exit
-                                quit = true;
-                                break;
-                                default:
-                                    System.out.println("Invalid choice.");
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
             }
         } while (!quit);
         System.out.println("Thanks for using this simulator");
