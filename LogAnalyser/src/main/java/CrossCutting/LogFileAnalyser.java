@@ -33,7 +33,7 @@ public class LogFileAnalyser
                 status= "Normal Log";
             }
             br.close();
-            file.delete(); // Delete the log file as I don't want to process it again
+            //file.delete(); // Delete the log file as I don't want to process it again
         }
         catch (Exception e)
         {
